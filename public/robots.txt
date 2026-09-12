@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /_authenticated/
+Disallow: /account
+Disallow: /checkout
+
+Disallow: /concierge
+
+Sitemap: /sitemap.xml

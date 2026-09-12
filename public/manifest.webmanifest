@@ -1,0 +1,15 @@
+{
+  "name": "GZAF — Maison de Couture",
+  "short_name": "GZAF",
+  "description": "Luxury fashion house — ready-to-wear, couture, and a global atelier network.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "GZAF Store",
+  "description": "GZAF Maison de Couture — luxury fashion house offering ready-to-wear collections, couture pieces, and bespoke atelier services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

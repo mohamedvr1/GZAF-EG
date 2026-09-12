@@ -1,0 +1,232 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * GZAF — Design System (Phase 1)
+ * Identity: Noir couture. Rich black canvas, paper off-white, single couture red accent.
+ * Typography: Cormorant Garamond (display) + Karla (UI/body).
+ * All color values in oklch.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* GZAF brand tokens */
+  --color-noir: var(--noir);
+  --color-paper: var(--paper);
+  --color-couture-red: var(--couture-red);
+  --color-couture-red-deep: var(--couture-red-deep);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0rem; /* sharp couture edges */
+
+  /* GZAF core */
+  --noir: oklch(0.08 0 0);            /* #0a0a0a rich black */
+  --paper: oklch(0.985 0.002 60);     /* #fbfaf7 warm off-white */
+  --couture-red: oklch(0.48 0.19 25); /* deep couture crimson */
+  --couture-red-deep: oklch(0.34 0.16 25);
+
+  /* Semantic — light surface (rare, used for editorial breaks) */
+  --background: var(--paper);
+  --foreground: var(--noir);
+  --card: var(--paper);
+  --card-foreground: var(--noir);
+  --popover: var(--paper);
+  --popover-foreground: var(--noir);
+  --primary: var(--noir);
+  --primary-foreground: var(--paper);
+  --secondary: oklch(0.96 0.003 60);
+  --secondary-foreground: var(--noir);
+  --muted: oklch(0.94 0.003 60);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: var(--couture-red);
+  --accent-foreground: var(--paper);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: var(--paper);
+  --border: oklch(0.88 0.002 60);
+  --input: oklch(0.88 0.002 60);
+  --ring: var(--couture-red);
+  --chart-1: var(--couture-red);
+  --chart-2: oklch(0.4 0 0);
+  --chart-3: oklch(0.6 0 0);
+  --chart-4: oklch(0.75 0 0);
+  --chart-5: oklch(0.2 0 0);
+  --sidebar: var(--noir);
+  --sidebar-foreground: var(--paper);
+  --sidebar-primary: var(--couture-red);
+  --sidebar-primary-foreground: var(--paper);
+  --sidebar-accent: oklch(0.15 0 0);
+  --sidebar-accent-foreground: var(--paper);
+  --sidebar-border: oklch(0.2 0 0);
+  --sidebar-ring: var(--couture-red);
+}
+
+.dark {
+  --background: var(--noir);
+  --foreground: var(--paper);
+  --card: oklch(0.11 0 0);
+  --card-foreground: var(--paper);
+  --popover: oklch(0.11 0 0);
+  --popover-foreground: var(--paper);
+  --primary: var(--paper);
+  --primary-foreground: var(--noir);
+  --secondary: oklch(0.14 0 0);
+  --secondary-foreground: var(--paper);
+  --muted: oklch(0.16 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: var(--couture-red);
+  --accent-foreground: var(--paper);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: var(--paper);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--couture-red);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    font-weight: 400;
+    font-size: 0.9375rem;      /* 15px base */
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Display — Cormorant Garamond, italic-forward couture voice */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    color: inherit;
+  }
+
+  h1 { font-size: clamp(2.75rem, 6.5vw, 6rem); line-height: 0.95; letter-spacing: -0.025em; }
+  h2 { font-size: clamp(2.25rem, 4.5vw, 4rem); line-height: 1;    letter-spacing: -0.02em; }
+  h3 { font-size: clamp(1.75rem, 2.6vw, 2.5rem); line-height: 1.1; }
+  h4 { font-size: clamp(1.375rem, 1.8vw, 1.75rem); line-height: 1.15; }
+  h5 { font-size: clamp(1.125rem, 1.3vw, 1.375rem); line-height: 1.2; }
+  h6 { font-size: 1rem; line-height: 1.3; letter-spacing: -0.005em; }
+
+  /* Body prose */
+  p { font-family: var(--font-sans); line-height: 1.7; }
+  small { font-size: 0.8125rem; letter-spacing: 0.02em; }
+
+  /* UI micro-labels — Karla wide-tracked uppercase */
+  label, button, input, select, textarea {
+    font-family: var(--font-sans);
+  }
+
+  /* Quotes rendered in display serif */
+  blockquote, q, cite {
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  a { font-family: inherit; }
+
+  code, pre, kbd, samp { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; }
+}
+
+/* Reusable couture type utilities */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+@utility micro-label {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+@utility display-hero {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(4rem, 12vw, 12rem);
+  line-height: 0.82;
+  letter-spacing: -0.035em;
+}
+
+/* Hide Lovable badge */
+#lovable-badge,
+[id="lovable-badge"],
+a[href*="lovable.dev"]:has(svg),
+div[class*="lovable"][class*="badge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
